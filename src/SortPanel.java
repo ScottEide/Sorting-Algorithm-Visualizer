@@ -121,8 +121,6 @@ public class SortPanel extends JPanel implements ActionListener {
 		else if(index == 7) {
 			quickSort(0, total-1);
 		}
-		
-		System.out.println(animations.size());
 	}
 	
 	public void stop() {

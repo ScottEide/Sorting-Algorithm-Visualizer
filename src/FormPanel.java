@@ -72,21 +72,7 @@ public class FormPanel extends JPanel implements ChangeListener{
             	if (!e.getValueIsAdjusting()) {
             		int index = algorithmList.getSelectedIndex();
             		
-            		System.out.println(index);
-            		
-            		if(index == 0) {
-            			timeCompLabel.setText("Time Complexity: O( n^2 )");
-            			spaceCompLabel.setText("Space Complexity: O(1)");
-            		}
-            		else if(index == 1) {
-            			timeCompLabel.setText("Time Complexity: O( n^2 )");
-            			spaceCompLabel.setText("Space Complexity: O(1)");
-            		}
-            		else if(index == 2) {
-            			timeCompLabel.setText("Time Complexity: O( n^2 )");
-            			spaceCompLabel.setText("Space Complexity: O(1)");
-            		}
-            		else if(index == 3) {
+            		if(index >= 0 && index <= 3) {
             			timeCompLabel.setText("Time Complexity: O( n^2 )");
             			spaceCompLabel.setText("Space Complexity: O(1)");
             		}
@@ -97,10 +83,6 @@ public class FormPanel extends JPanel implements ChangeListener{
             		else if(index == 5) {
             			timeCompLabel.setText("Time Complexity: O( n*log(n) )");
             			spaceCompLabel.setText("Space Complexity: O(1)");
-            		}
-            		else if(index == 6) {
-            			timeCompLabel.setText("Time Complexity: O( n*log(n) )");
-            			spaceCompLabel.setText("Space Complexity: O(n)");
             		}
             		else {
             			timeCompLabel.setText("Time Complexity: O( n*log(n) )");
