@@ -44,10 +44,9 @@ public class SortPanel extends JPanel implements ActionListener {
 
 		double canvasWidth = 900.0d;
 		double canvasHeight = 700.0d;
-		double totalBlocks = (double)total;
 		
 		for(int i = 0; i < total; i++) {
-			Rectangle2D.Double rect = new Rectangle2D.Double(i*(canvasWidth/totalBlocks), canvasHeight - allBlocks[i].getValue(), canvasWidth/totalBlocks, allBlocks[i].getValue());
+			Rectangle2D.Double rect = new Rectangle2D.Double(i*(canvasWidth/total), canvasHeight - allBlocks[i].getValue(), canvasWidth/total, allBlocks[i].getValue());
 
 			g2.setColor(allBlocks[i].getColor());
 			g2.fill(rect);
