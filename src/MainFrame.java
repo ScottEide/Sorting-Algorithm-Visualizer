@@ -21,7 +21,7 @@ public class MainFrame extends JFrame {
 
 			public void buttonSend(int index) {
 				if(index == 0) {
-					sortPanel.sort(menuPanel.getAlgorithmIndex());
+					sortPanel.start(menuPanel.getAlgorithmIndex());
 				}
 				else if(index == 1) {
 					sortPanel.stop();

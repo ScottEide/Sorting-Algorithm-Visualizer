@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class Toolbar extends JPanel implements ActionListener {
 	
-	private JButton sortBtn;
+	private JButton startBtn;
 	private JButton stopBtn;
 	private JButton randomSetBtn;
 	private JButton ascSetBtn;
@@ -19,13 +19,13 @@ public class Toolbar extends JPanel implements ActionListener {
 	public Toolbar() {
 		setBorder(BorderFactory.createEtchedBorder());
 		
-		sortBtn  = new JButton("Sort");
+		startBtn  = new JButton("Start");
 		stopBtn = new JButton("Stop");
 		randomSetBtn = new JButton("Random Set");
 		ascSetBtn = new JButton("Ascending Set");
 		decSetBtn = new JButton("Descending Set");
 		
-		sortBtn.addActionListener(this);
+		startBtn.addActionListener(this);
 		stopBtn.addActionListener(this);
 		randomSetBtn.addActionListener(this);
 		ascSetBtn.addActionListener(this);
@@ -33,7 +33,7 @@ public class Toolbar extends JPanel implements ActionListener {
 		
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		add(sortBtn);
+		add(startBtn);
 		add(stopBtn);
 		add(randomSetBtn);
 		add(ascSetBtn);
@@ -47,7 +47,7 @@ public class Toolbar extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton clicked = (JButton)e.getSource();
 		
-		if(clicked == sortBtn) {
+		if(clicked == startBtn) {
 			buttonListener.buttonSend(0);
 		}
 		else if(clicked == stopBtn) {

@@ -77,7 +77,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		repaint();
 	}
 	
-	public void sort(int index) {
+	public void start(int index) {
 		stop();
 		
 		animations = null;
