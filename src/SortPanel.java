@@ -447,14 +447,13 @@ public class SortPanel extends JPanel implements ActionListener {
 			sortArray[lastIndex].setColor(Color.red);
             animations.add(new Animation(lastIndex, new Block(sortArray[lastIndex].getValue(), sortArray[lastIndex].getColor()), true));
             
-            sortArray[0].setColor(Color.red);
+            sortArray[0].setColor(Color.blue);
             animations.add(new Animation(0, new Block(sortArray[0].getValue(), sortArray[0].getColor()), false));
 			
 			swap(sortArray, 0, lastIndex);
 			
 			sortArray[lastIndex].setColor(Color.green);
 			animations.add(new Animation(lastIndex, new Block(sortArray[lastIndex].getValue(), sortArray[lastIndex].getColor()), true));
-			sortArray[lastIndex].setColor(Color.white);
 			animations.add(new Animation(0, new Block(sortArray[0].getValue(), sortArray[0].getColor()), false));
 			
 			if(lastIndex == 1) {
@@ -470,26 +469,28 @@ public class SortPanel extends JPanel implements ActionListener {
 	}
 	
 	public void heapify(int n) {
-		for(int firstIndex = n-1; firstIndex >= 0; firstIndex--) {
-			siftDown(firstIndex, n-1);
+		for(int index = n-1; index >= 0; index--) {
+			siftDown(index, n-1);
 		}
 	}
 	
-	public void siftDown(int firstIndex, int lastIndex) {
-		int root = firstIndex;
+	public void siftDown(int index, int last) {
+		int root = index;
 		int child = (2*root) + 1;
 		
-		while(lastIndex >= child) {
+		while(last >= child) {
 			int swapIndex = root;
 			
-			sortArray[swapIndex].setColor(Color.red);
-			animations.add(new Animation(swapIndex, new Block(sortArray[swapIndex].getValue(), sortArray[swapIndex].getColor()), false));
+			if(sortArray[swapIndex].getColor() != Color.red) {
+				sortArray[swapIndex].setColor(Color.red);
+				animations.add(new Animation(swapIndex, new Block(sortArray[swapIndex].getValue(), sortArray[swapIndex].getColor()), false));
+			}
 			
 			if(sortArray[swapIndex].getValue() < sortArray[child].getValue()) {
 				swapIndex = child;
 			}
 			
-			if(child + 1 <= lastIndex && sortArray[swapIndex].getValue() < sortArray[child + 1].getValue()) {
+			if(child + 1 <= last && sortArray[swapIndex].getValue() < sortArray[child + 1].getValue()) {
 				swapIndex = child + 1;
 			}
 			
@@ -503,12 +504,15 @@ public class SortPanel extends JPanel implements ActionListener {
 				animations.add(new Animation(swapIndex, new Block(sortArray[swapIndex].getValue(), sortArray[swapIndex].getColor()), false));
 				
 				sortArray[root].setColor(Color.white);
-				animations.add(new Animation(root, new Block(sortArray[root].getValue(), sortArray[root].getColor()), true));
-				sortArray[swapIndex].setColor(Color.white);
-				animations.add(new Animation(swapIndex, new Block(sortArray[swapIndex].getValue(), sortArray[swapIndex].getColor()), false));
+				animations.add(new Animation(root, new Block(sortArray[root].getValue(), sortArray[root].getColor()), false));
 				
 				root = swapIndex;
 				child = (2*root) + 1;
+				
+				if(last <= child) {
+					sortArray[swapIndex].setColor(Color.white);
+					animations.add(new Animation(swapIndex, new Block(sortArray[swapIndex].getValue(), sortArray[swapIndex].getColor()), false));
+				}
 			}
 			else {
 				sortArray[swapIndex].setColor(Color.white);
