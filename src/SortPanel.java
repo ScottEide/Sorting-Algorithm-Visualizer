@@ -549,12 +549,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		int k = left;
 		
 		while(i != leftTotal && j != rightTotal) {
-//			sortArray[left + i].setColor(Color.blue);
-//			animations.add(new Animation(left + i, new Block(sortArray[left + i].getValue(), sortArray[left + i].getColor()), true));
-//			
-//			sortArray[mid + 1 + j].setColor(Color.blue);
-//			animations.add(new Animation(mid + 1 + j, new Block(sortArray[mid + 1 + j].getValue(), sortArray[mid + 1 + j].getColor()), false));
-			
+
 			if(leftArray[i].getValue() < rightArray[j].getValue()) {
 				sortArray[k] = leftArray[i];
 				
@@ -566,7 +561,7 @@ public class SortPanel extends JPanel implements ActionListener {
 				sortArray[k] = rightArray[j];
 				
 				animations.add(new Animation(k, new Block(sortArray[k].getValue(), sortArray[k].getColor()), false));
-				
+
 				j++;
 			}
 			
