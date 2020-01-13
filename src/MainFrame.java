@@ -9,7 +9,7 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame() {
 		
-		super("Sorting Algorithm Visualizer");
+		super("Visualization of Sorting Algorithms");
 		
 		menuPanel = new FormPanel();
 		toolbar = new Toolbar();
