@@ -17,8 +17,8 @@ Run the executable and follow the instructions on the install wizard.
 ### Installation
 
 If you only want to run and use the software, click on the "Visualization of Sorting Algorithms.jar" file above and then download it.  
-Once it is done downloading, open the file and you'll be all set. The window for the software can take a few seconds to pop up, so please be patient if it isn't instantaneous.
   
+Once it is done downloading, open the file and you'll be all set. The window for the software can take a few seconds to pop up, so please be patient if it isn't instantaneous.  
   
 If you would like to edit or review the code in a development environment, you will first need to go download and install the Eclipse IDE.
 Eclipse can be downloaded here: https://www.eclipse.org/downloads/  
@@ -27,9 +27,9 @@ Once you have Eclipse installed onto your system, scroll up and click the green 
   
 After it's done downloading, you can then import the project into Eclipse.  
   
-Follow the instructions on this website if you don't know how to import projects: https://www.360logica.com/blog/how-to-import-a-java-project-into-eclipse-ide/
+If you don't know how to import java projects into Eclipse, you can follow the instructions on this website: https://www.360logica.com/blog/how-to-import-a-java-project-into-eclipse-ide/  
   
-All the code is in the src folder.  
+This site uses pictures to guide you through the process, which I think is a lot better than me explaining it through text.
 
 ### Author
 Scott Eide
