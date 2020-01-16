@@ -8,7 +8,7 @@ To check if you have JRE on your Windows machine, press the windows key + r to o
   
 A new window will appear that displays all the programs installed onto your computer. In the search bar, type in "java" and see if anything shows up.  
   
-If you don't see a listing that says "Java 8 Update 231", or if you have a java listing that is a version below 231, then you will need to download the latest JRE.  
+If you don't see a listing that says "Java 8 Update 241", or if you have a java listing that is a version below 241, then you will need to download the latest JRE.  
   
 You can download it here: https://www.java.com/en/download/  
   
