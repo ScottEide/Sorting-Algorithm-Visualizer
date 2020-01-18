@@ -8,17 +8,20 @@ public class MainFrame extends JFrame {
 	private SortPanel sortPanel;
 	
 	public MainFrame() {
-		
+		// Name of the window
 		super("Sorting Algorithms Visualizer");
 		
+		// Setting up the panels
 		menuPanel = new FormPanel();
 		toolbar = new Toolbar();
 		sortPanel = new SortPanel();
 		
 		setLayout(new BorderLayout());
 		
+		// Adding a listener to the toolbar for button presses
 		toolbar.setButtonListener(new ButtonListener() {
-
+			
+			// index is the position of each button in the toolbar.  index = 0 is the first button, 1 the second, etc.
 			public void buttonSend(int index) {
 				if(index == 0) {
 					sortPanel.start(menuPanel.getAlgorithmIndex());
@@ -38,7 +41,8 @@ public class MainFrame extends JFrame {
 			}
 			
 		});
-	
+		
+		// Adding a listener to the sliders in the menu, which will send the new values to sortPanel when changed
 		menuPanel.setSliderListener(new SliderListener() {
 			public void sendNewBlockTotal(int total) {
 				sortPanel.setTotal(total);
@@ -50,17 +54,16 @@ public class MainFrame extends JFrame {
 			
 		});
 		
-		
+		// Adding the panels to the window
 		add(toolbar, BorderLayout.NORTH);
 		add(menuPanel, BorderLayout.WEST);
 		add(sortPanel, BorderLayout.EAST);
 		
+		// Window settings
 		setSize(1200, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
-		
-		
 	}
 }

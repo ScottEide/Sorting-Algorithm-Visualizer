@@ -18,12 +18,14 @@ public class Toolbar extends JPanel implements ActionListener {
 	public Toolbar() {
 		setBorder(BorderFactory.createEtchedBorder());
 		
+		// Creating all the buttons for the toolbar
 		startBtn  = new JButton("Start");
 		stopBtn = new JButton("Stop");
 		randomSetBtn = new JButton("Random Set");
 		ascSetBtn = new JButton("Ascending Set");
 		decSetBtn = new JButton("Descending Set");
 		
+		// Adding action listeners to each button
 		startBtn.addActionListener(this);
 		stopBtn.addActionListener(this);
 		randomSetBtn.addActionListener(this);
@@ -32,6 +34,7 @@ public class Toolbar extends JPanel implements ActionListener {
 		
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		
+		// Adding them to the toolbar so that they are visible
 		add(startBtn);
 		add(stopBtn);
 		add(randomSetBtn);
@@ -43,6 +46,7 @@ public class Toolbar extends JPanel implements ActionListener {
 		this.buttonListener = listener;
 	}
 	
+	// Each button will send an integer value based on their position in the toolbar
 	public void actionPerformed(ActionEvent e) {
 		JButton clicked = (JButton)e.getSource();
 		

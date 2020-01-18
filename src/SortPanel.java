@@ -22,10 +22,12 @@ public class SortPanel extends JPanel implements ActionListener {
 	private boolean isStopped;
 	
 	public SortPanel() {
+		// Setting the size of the SortPanel
 		Dimension dim = getPreferredSize();
 		dim.width = 900;
 		setPreferredSize(dim);
 		
+		// Giving the panel an etched border and dark gray background 
 		setBorder(BorderFactory.createEtchedBorder());
 		setBackground(Color.DARK_GRAY);
 		
@@ -37,6 +39,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		timer.start();
 	}
 	
+	// This function is what paints all the blocks inside the allBlocks array
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		
@@ -56,7 +59,20 @@ public class SortPanel extends JPanel implements ActionListener {
 		}
 	}
 	
+	// This function is called as long as the timer is on.  If the timer delay is 1 ms, then this function is called every 1 ms.
 	public void actionPerformed(ActionEvent e) {
+		/*
+			The animations list is what gives us a visual of what is happening.  It is a List of Animaiton objects, which each contain information
+			about the index, block, and whether or not a swap took place.
+			
+			When the list is empty, we see no change.  When there are items present however, we get the first animation in the list.
+			
+			If its swapAni boolean value is false, it means that only a block highlight is happening.  So, we just change the block data 
+			in allBlocks at the recorded index.  Once this is done, we remove that animation from the list.  We do this until the list is empty.  
+			
+			If its swapAni value is true, we do the same as above but twice.  This is to make swaps more natural.  If we were to do it one block
+			at a time, one block would seemingly disappear and then reappear in a different spot, which looks terrible.
+		*/
 		if(!animations.isEmpty() && isStopped == false) {
 			Animation a = animations.get(0);
 			if(a.getSwapAni()) {
@@ -76,15 +92,19 @@ public class SortPanel extends JPanel implements ActionListener {
 		repaint();
 	}
 	
+	// Gets the index of the selected algorithm in the menuPanel, then executes the correct algorithm
 	public void start(int index) {
 		stop();
 		
+		// Clearing out the animations list and making a fresh one
 		animations = null;
 		animations = new ArrayList<Animation>();
 		
+		// We use a sortArray because allBlocks can only update through animations
 		sortArray = null;
 		sortArray = new Block[total];
 		
+		// Copy the content from allBlocks into sortArray
 		for(int i = 0; i < total; i++) {
 			sortArray[i] = new Block(allBlocks[i].getValue(), Color.white);
 		}
@@ -122,6 +142,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		}
 	}
 	
+	// stop and go functions to control the flow of animations
 	public void stop() {
 		isStopped = true;
 	}
@@ -130,6 +151,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		isStopped = false;
 	}
 	
+	// Creates a set for allBlocks that is random
 	public void randomSet() {
 		allBlocks = null;
 		allBlocks = new Block[total];
@@ -145,6 +167,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		stop();
 	}
 	
+	// Creates a set for allBlocks that is in ascending order
 	public void ascSet() {
 		allBlocks = null;
 		allBlocks = new Block[total];
@@ -155,6 +178,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		stop();
 	}
 	
+	// Creates a set for allBlocks that is in descending order
 	public void descSet() {
 		allBlocks = null;
 		allBlocks = new Block[total];
@@ -165,6 +189,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		stop();
 	}
 
+	// Uses a simple bubble sort (because 300 is the max, bubble is fast enough)
 	public void sortAsc() {
 		boolean isSorted = true;
 		
@@ -184,6 +209,7 @@ public class SortPanel extends JPanel implements ActionListener {
 		}
 	}
 	
+	// Reverse bubble sort
 	public void sortDesc() {
 		boolean isSorted = true;
 		
@@ -203,13 +229,22 @@ public class SortPanel extends JPanel implements ActionListener {
 		}
 	}
 
-	
-	
+	// This is for swapping the locations of two blocks
 	public void swap(Block[] arr, int i, int j) {
 		Block tmp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = tmp;
 	}
+	
+	/*
+	 	Below is where animations are created.
+	 	
+	 	When we create an animation, we need to send an integer value for the index, a Block for block data,
+	 	and a boolean for if a swap occurred.
+		
+		Because we have to create new blocks for each animation (I have tried sending blocks from sortArray, but things break when doing that),
+		the code can get a little messy.
+	*/
 	
 	public void bubbleSort() {
 		boolean isSorted = true;
