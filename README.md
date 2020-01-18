@@ -1,4 +1,4 @@
-# Visualization of Sorting Algorithms
+# Sorting Algorithms Visualizer
 
 ### Prerequisites
 
@@ -16,7 +16,7 @@ Run the executable and follow the instructions on the install wizard.
 
 ### Installation
 
-If you only want to run and use the software, click on the "Visualization of Sorting Algorithms.jar" file above and then download it.  
+If you only want to run and use the software, click on the "Sorting Algorithms Visualizer.jar" file above and then download it.  
   
 Once it is done downloading, open the file and you'll be all set. The window for the software can take a few seconds to pop up, so please be patient if it isn't instantaneous.  
   
